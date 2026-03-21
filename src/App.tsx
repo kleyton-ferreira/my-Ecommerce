@@ -1,5 +1,8 @@
 import { FunctionComponent } from 'react'
 
+// COMPONENTS
+import Header from './components/header/header.components'
+
 interface AppProps {
   message?: string
 }
@@ -7,7 +10,7 @@ interface AppProps {
 const App: FunctionComponent<AppProps> = ({ message }) => {
   return (
     <>
-      <h1>Hello world</h1>
+      <Header />
     </>
   )
 }
