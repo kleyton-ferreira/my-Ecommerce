@@ -23,7 +23,7 @@ const Categories = () => {
 
   return (
     <div className='categories-container'>
-      <div className='categories-content'>Aqui vem as Categorias ( ! )</div>
+      <div className='categories-content'>Aqui vem as Categorias ( ! ) </div>
     </div>
   )
 }

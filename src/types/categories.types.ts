@@ -6,3 +6,5 @@ interface Category {
 }
 
 export default Category
+
+// ESSAS CATEGORIES E OS TIPOS QUE CADA ELEMENTO SERA EXIBIDO NA TELA!
