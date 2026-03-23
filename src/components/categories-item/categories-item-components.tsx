@@ -1,12 +1,16 @@
-// UTILITZ
 import { FunctionComponent } from 'react'
+
+// CSS
+import './categories-item.style.css'
+
+// UTILITZ
 import Category from '../../types/categories.types'
 
-interface CategoriesItem {
+interface CategoryItemProps {
   category: Category
 }
 
-const CategoriesItems: FunctionComponent<CategoriesItem> = ({ category }) => {
+const CategoryItems: FunctionComponent<CategoryItemProps> = ({ category }) => {
   return (
     <div
       className='category-item-container'
@@ -14,9 +18,10 @@ const CategoriesItems: FunctionComponent<CategoriesItem> = ({ category }) => {
     >
       <div className='category-name'>
         <p> {category.displayName} </p>
+        <p>Explorar</p>
       </div>
     </div>
   )
 }
 
-export default CategoriesItems
+export default CategoryItems
