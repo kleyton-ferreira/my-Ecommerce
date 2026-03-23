@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 // ICONS
 import { BsCart3 } from 'react-icons/bs'
 
@@ -12,12 +14,23 @@ import {
 } from './header.styles'
 
 const Header = () => {
+  const navigate = useNavigate()
+
+  // FUNCTION = ( PAGE ! LOGIN )
+  const handleLoginClick = () => {
+    navigate('/login')
+  }
+
+  const handleInitialPage = () => {
+    navigate('/')
+  }
+
   return (
     <HeaderContainer>
-      <HeaderTitle> CLUB CLOTHING </HeaderTitle>
+      <HeaderTitle onClick={handleInitialPage}> CLUB CLOTHING </HeaderTitle>
       <HeaderContent>
         <HeaderItems>Explorar</HeaderItems>
-        <HeaderItems>Login</HeaderItems>
+        <HeaderItems onClick={handleLoginClick}>Login</HeaderItems>
         <HeaderItems>Criar Conta</HeaderItems>
         <HeaderCart>
           <BsCart3 size={20} />

@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react'
 
 // CSS
-import './categories-item.style.css'
 import { CategoryItemContainer, CategoryName } from './categories-item.style'
 
 // UTILITZ
