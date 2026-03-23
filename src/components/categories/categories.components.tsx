@@ -7,6 +7,7 @@ import env from '../../config/env.config'
 
 // CSS
 import './categories.style.css'
+import { CategoriesContainer, CategoriesContent } from './categories.style'
 
 // COMPONENTS
 import CategoryItems from '../categories-item/categories-item-components'
@@ -28,15 +29,15 @@ const Categories = () => {
   }, [])
 
   return (
-    <div className='categories-container'>
-      <div className='categories-content'>
+    <CategoriesContainer>
+      <CategoriesContent>
         {categories.map((itemsCategory) => (
           <div key={itemsCategory.id}>
             <CategoryItems category={itemsCategory} />
           </div>
         ))}
-      </div>
-    </div>
+      </CategoriesContent>
+    </CategoriesContainer>
   )
 }
 

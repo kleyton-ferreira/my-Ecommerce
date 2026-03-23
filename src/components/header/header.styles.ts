@@ -12,7 +12,7 @@ export const HeaderContainer = styled.div`
 `
 
 export const HeaderContent = styled.div`
-display: flex;
+ display: flex;
  gap: 30px;
  align-items: center;
  justify-content: space-between;
@@ -35,6 +35,7 @@ export const HeaderTitle = styled.h2`
  `
 
 export const HeaderCart = styled.div`
+  font-size: 18px;
   display: flex;
   align-items: center;
   color: ${Colors.text.whithe};
@@ -46,8 +47,6 @@ export const HeaderParagraf = styled.p`
   left: 3px;
   top: -3px;
  `
-
-
 
 
 
