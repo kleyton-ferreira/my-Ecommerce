@@ -6,7 +6,6 @@ import axios from 'axios'
 import env from '../../config/env.config'
 
 // CSS
-import './categories.style.css'
 import { CategoriesContainer, CategoriesContent } from './categories.style'
 
 // COMPONENTS
