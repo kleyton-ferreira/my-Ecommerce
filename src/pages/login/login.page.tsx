@@ -19,14 +19,19 @@ import {
 } from './login.styles'
 import validator from 'validator'
 
+interface LoginPageForm {
+  email: string
+  password: string
+}
+
 const LoginPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
+  } = useForm<LoginPageForm>()
 
-  const handleSubmitPress = (data: any) => {
+  const handleSubmitPress = (data: LoginPageForm) => {
     console.log({ data })
   }
 
@@ -57,12 +62,12 @@ const LoginPage = () => {
               })}
             />
             {errors?.email?.type === 'required' && (
-              <InputErrorMessage>O email é obrigatório</InputErrorMessage>
+              <InputErrorMessage>O email é obrigatório.</InputErrorMessage>
             )}
 
             {errors?.email?.type === 'validate' && (
               <InputErrorMessage>
-                Por favor, insira um e-mail válido
+                Por favor, insira um e-mail válido.
               </InputErrorMessage>
             )}
           </LoginInputContainer>
@@ -77,9 +82,10 @@ const LoginPage = () => {
             />
 
             {errors?.password?.type === 'required' && (
-              <InputErrorMessage>A senha é obrigatória</InputErrorMessage>
+              <InputErrorMessage>A senha é obrigatória.</InputErrorMessage>
             )}
           </LoginInputContainer>
+
           <CustomButton
             onClick={() => handleSubmit(handleSubmitPress)()}
             startIcon={<FiLogIn size={20} />}
