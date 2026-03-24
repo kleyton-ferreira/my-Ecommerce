@@ -15,7 +15,8 @@ import {
   LoginContent,
   LoginHeadLine,
   LoginInputContainer,
-  LoginSubtitle
+  LoginSubtitle,
+  LoginLabel
 } from './login.styles'
 import validator from 'validator'
 
@@ -50,7 +51,7 @@ const LoginPage = () => {
 
           {/* INPUT - 1 */}
           <LoginInputContainer>
-            <p>E-mail</p>
+            <LoginLabel>E-mail</LoginLabel>
             <CustomIput
               hasError={!!errors.email}
               placeholder='Digite seu e-mail'
@@ -74,7 +75,7 @@ const LoginPage = () => {
 
           {/* INPUT - 2 */}
           <LoginInputContainer>
-            <p>Senha</p>
+            <LoginLabel>Senha</LoginLabel>
             <CustomIput
               hasError={!!errors.password}
               placeholder='Digite sua senha'

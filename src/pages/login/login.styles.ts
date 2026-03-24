@@ -42,3 +42,8 @@ export const LoginInputContainer = styled.div`
     margin-bottom: 5px;
   }
 `
+
+export const LoginLabel = styled.p`
+ color: ${Colors.text.dark} ;
+ font-size: 18px;
+`
