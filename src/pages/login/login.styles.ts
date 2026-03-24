@@ -12,7 +12,7 @@ export const LoginHeadLine = styled.p`
   font-weight: 600;
   font-size: 1.3rem;
   margin-bottom: 20px;
-  color: ${Colors.primary};
+  color: ${Colors.text.dark};
 `
 
 export const LoginContent = styled.div`
@@ -23,7 +23,7 @@ export const LoginContent = styled.div`
 `
 
 export const LoginSubtitle = styled.p`
-  color: ${Colors.primary};
+  color: ${Colors.text.dark};
   padding-bottom: 20px;
   border-bottom: 1px solid ${Colors.input.placeholder};
   width: 100%;
@@ -35,7 +35,7 @@ export const LoginSubtitle = styled.p`
 
 export const LoginInputContainer = styled.div`
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   & p:nth-child(1) {
     font-weight: 600;
