@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // PAGES
 import Home from './pages/home/home.page'
 import LoginPage from './pages/login/login.page'
+import SignUpPage from './pages/sign-up/sign-up-page'
 
 interface AppProps {
   children?: string
@@ -16,6 +17,7 @@ const App: FunctionComponent<AppProps> = ({ children }) => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignUpPage />} />
         </Routes>
       </BrowserRouter>
     </>
