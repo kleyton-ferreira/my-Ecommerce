@@ -1,3 +1,6 @@
+// UTILITZ
+import { useForm } from 'react-hook-form'
+
 // COMPONENTS
 import Header from '../../components/header/header.components'
 import CustomButton from '../../components/custom-button/custom-button.components'
@@ -17,6 +20,18 @@ import {
 } from './login.styles'
 
 const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm()
+
+  const handleSubmitPress = (data: any) => {
+    console.log({ data })
+  }
+
+  console.log({ errors })
+
   return (
     <>
       <Header />
@@ -27,15 +42,30 @@ const LoginPage = () => {
             Entrar com Google
           </CustomButton>
           <LoginSubtitle>ou entre com seu e-mail</LoginSubtitle>
+
+          {/* INPUT - 1 */}
           <LoginInputContainer>
             <p>E-mail</p>
-            <CustomIput placeholder='Digite seu e-mail' />
+            <CustomIput
+              placeholder='Digite seu e-mail'
+              {...register('email', { required: true })}
+            />
           </LoginInputContainer>
+
+          {/* INPUT - 1 */}
           <LoginInputContainer>
             <p>Senha</p>
-            <CustomIput placeholder='Digite sua senha' />
+            <CustomIput
+              placeholder='Digite sua senha'
+              {...register('password', { required: true })}
+            />
           </LoginInputContainer>
-          <CustomButton startIcon={<FiLogIn size={20} />}>Entrar</CustomButton>
+          <CustomButton
+            onClick={() => handleSubmit(handleSubmitPress)()}
+            startIcon={<FiLogIn size={20} />}
+          >
+            Entrar
+          </CustomButton>
         </LoginContent>
       </LoginContainer>
     </>
