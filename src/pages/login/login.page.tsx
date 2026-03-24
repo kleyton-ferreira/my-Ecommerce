@@ -1,14 +1,13 @@
 // UTILITZ
+import { BsGoogle } from 'react-icons/bs'
+import { FiLogIn } from 'react-icons/fi'
 import { useForm } from 'react-hook-form'
 
 // COMPONENTS
 import Header from '../../components/header/header.components'
 import CustomButton from '../../components/custom-button/custom-button.components'
 import CustomIput from '../../components/custom-input/custom-input-components'
-
-// ICONS
-import { BsGoogle } from 'react-icons/bs'
-import { FiLogIn } from 'react-icons/fi'
+import InputErrorMessage from '../../components/input-error-message/input-error-message'
 
 // CSS
 import {
@@ -18,6 +17,7 @@ import {
   LoginInputContainer,
   LoginSubtitle
 } from './login.styles'
+import validator from 'validator'
 
 const LoginPage = () => {
   const {
@@ -30,7 +30,7 @@ const LoginPage = () => {
     console.log({ data })
   }
 
-  console.log({ errors })
+  // console.log({ errors })
 
   return (
     <>
@@ -47,18 +47,38 @@ const LoginPage = () => {
           <LoginInputContainer>
             <p>E-mail</p>
             <CustomIput
+              hasError={!!errors.email}
               placeholder='Digite seu e-mail'
-              {...register('email', { required: true })}
+              {...register('email', {
+                required: true,
+                validate: (value) => {
+                  return validator.isEmail(value)
+                }
+              })}
             />
+            {errors?.email?.type === 'required' && (
+              <InputErrorMessage>O email é obrigatório</InputErrorMessage>
+            )}
+
+            {errors?.email?.type === 'validate' && (
+              <InputErrorMessage>
+                Por favor, insira um e-mail válido
+              </InputErrorMessage>
+            )}
           </LoginInputContainer>
 
-          {/* INPUT - 1 */}
+          {/* INPUT - 2 */}
           <LoginInputContainer>
             <p>Senha</p>
             <CustomIput
+              hasError={!!errors.password}
               placeholder='Digite sua senha'
               {...register('password', { required: true })}
             />
+
+            {errors?.password?.type === 'required' && (
+              <InputErrorMessage>A senha é obrigatória</InputErrorMessage>
+            )}
           </LoginInputContainer>
           <CustomButton
             onClick={() => handleSubmit(handleSubmitPress)()}
