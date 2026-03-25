@@ -15,7 +15,7 @@ const CategoryItems: FunctionComponent<CategoryItemProps> = ({ category }) => {
     <CategoryItemContainer backgroundImage={category.imageUrl}>
       <CategoryName>
         <p> {category.displayName} </p>
-        <p>Explorar</p>
+        <p> {category.name} </p>
       </CategoryName>
     </CategoryItemContainer>
   )

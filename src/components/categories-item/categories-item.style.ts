@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Colors from "../../theme/theme.colors";
 
 interface CategoryItemContainerProps {
-    backgroundImage: string
+  backgroundImage: string
 }
 
 export const CategoryItemContainer = styled.div<CategoryItemContainerProps>`
@@ -13,15 +13,15 @@ export const CategoryItemContainer = styled.div<CategoryItemContainerProps>`
   width: 100%;
   height: 100%;
   grid-gap: 15px;
+  border-radius: 10px;
+  /* DESSA FORMA AQUI A IMAGEM FICA UM POUCO ESCURA */
+  background: ${(props) => `url("${props.backgroundImage}")`};
+  background-blend-mode: color;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 10px;
-  /* DESSA FORMA AQUI A IMAGEM FICA UM POUCO ESCURA */
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   background-color: rgba(0, 0, 0, 0.3);
-  background-blend-mode: color;
-  background: ${(props) => `url("${props.backgroundImage}")`};
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 `
 
 export const CategoryName = styled.div`
