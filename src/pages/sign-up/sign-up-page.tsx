@@ -132,6 +132,7 @@ const SignUpPage = () => {
             <CustomInput
               hasError={!!errors.password}
               placeholder='Digite sua senha'
+              type='password'
               {...register('password', { required: true, minLength: 6 })}
             />
             {errors?.password?.type === 'required' && (
@@ -151,6 +152,7 @@ const SignUpPage = () => {
             <CustomInput
               hasError={!!errors.passwordConfirmation}
               placeholder='Comfirme sua senha'
+              type='password'
               {...register('passwordConfirmation', {
                 required: true,
                 minLength: 6,

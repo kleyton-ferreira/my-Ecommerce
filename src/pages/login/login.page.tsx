@@ -1,7 +1,17 @@
+import { useForm } from 'react-hook-form'
+
 // UTILITZ
+import {
+  signInWithEmailAndPassword,
+  AuthError,
+  AuthErrorCodes
+} from 'firebase/auth'
+import validator from 'validator'
+import { auth } from '../../config/firebase.config'
+
+// ICONS
 import { BsGoogle } from 'react-icons/bs'
 import { FiLogIn } from 'react-icons/fi'
-import { useForm } from 'react-hook-form'
 
 // COMPONENTS
 import Header from '../../components/header/header.components'
@@ -18,7 +28,6 @@ import {
   LoginSubtitle,
   LoginLabel
 } from './login.styles'
-import validator from 'validator'
 
 interface LoginPageForm {
   email: string
@@ -29,11 +38,26 @@ const LoginPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    setError
   } = useForm<LoginPageForm>()
 
-  const handleSubmitPress = (data: LoginPageForm) => {
-    console.log({ data })
+  const handleSubmitPress = async (data: LoginPageForm) => {
+    try {
+      const UserCredencial = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      )
+
+      console.log({ UserCredencial })
+    } catch (error) {
+      const _error = error as AuthError
+      console.log(error)
+      if (_error.code === AuthErrorCodes.INVALID_LOGIN_CREDENTIALS) {
+        return setError('password', { type: 'mismatch' })
+      }
+    }
   }
 
   // console.log({ errors })
@@ -79,11 +103,16 @@ const LoginPage = () => {
             <CustomIput
               hasError={!!errors.password}
               placeholder='Digite sua senha'
+              type='password'
               {...register('password', { required: true })}
             />
 
             {errors?.password?.type === 'required' && (
               <InputErrorMessage>A senha é obrigatória.</InputErrorMessage>
+            )}
+
+            {errors?.password?.type === 'mismatch' && (
+              <InputErrorMessage>Insira a senha correta.</InputErrorMessage>
             )}
           </LoginInputContainer>
 
